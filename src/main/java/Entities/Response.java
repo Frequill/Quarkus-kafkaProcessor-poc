@@ -1,45 +1,43 @@
 package Entities;
 
+import javax.json.bind.annotation.JsonbProperty;
+
 public class Response {
 
-    public String id;
-    public String container;
-    public String message;
+    @JsonbProperty("responseId")
+    private String responseId;
+    @JsonbProperty("accountExists")
+    private boolean accountExists;
+    @JsonbProperty("loginSuccessful")
+    private boolean loginSuccessful;
 
-    public Response(String id, String container, String message) {
-        this.id = id;
-        this.container = container;
-        this.message = message;
+    public Response(String responseId, boolean accountExists, boolean loginSuccessful) {
+        this.responseId = responseId;
+        this.accountExists = accountExists;
+        this.loginSuccessful = loginSuccessful;
     }
 
-    public Response() {}
-
-    @Override
-    public String toString() {
-        return "{Id=" + id + ", container=" + container + ", message=" + message + "}";
+    public String getResponseId() {
+        return responseId;
     }
 
-    public String getId() {
-        return id;
+    public void setResponseId(String responseId) {
+        this.responseId = responseId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public boolean isAccountExists() {
+        return accountExists;
     }
 
-    public String getContainer() {
-        return container;
+    public void setAccountExists(boolean accountExists) {
+        this.accountExists = accountExists;
     }
 
-    public void setContainer(String container) {
-        this.container = container;
+    public boolean isLoginSuccessful() {
+        return loginSuccessful;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
+    public void setLoginSuccessful(boolean loginSuccessful) {
+        this.loginSuccessful = loginSuccessful;
     }
 }
